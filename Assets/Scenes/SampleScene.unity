@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.08045985, y: 0, z: 0, w: 0.99675786}
-  m_LocalPosition: {x: 0, y: 5.88, z: -21.26}
+  m_LocalPosition: {x: 2.41, y: 3.18, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 1860740423}
   - component: {fileID: 1860740428}
   - component: {fileID: 1860740429}
+  - component: {fileID: 1860740430}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -610,6 +611,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0, z: 1}
   m_Center: {x: 0, y: -0.76, z: 0}
+--- !u!114 &1860740430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860740422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a339c1aa11fbd17419eea8dbeb64aef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet_projectile: {fileID: 2020341687360939049, guid: 78e1a32ebcc735946aced9c0cb0980b8, type: 3}
+  m_thrust: 100
 --- !u!1001 &8105144000939168038
 PrefabInstance:
   m_ObjectHideFlags: 0
