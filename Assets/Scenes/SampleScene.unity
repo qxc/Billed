@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbde29365cb83842a4b022cf9bf72c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Thrust: 20
+  m_Thrust: 128.7
   feet: {fileID: 1860740429}
 --- !u!135 &1860740424
 SphereCollider:
@@ -575,7 +575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860740422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4407547, y: -1.6445502, z: 10.277593}
+  m_LocalPosition: {x: 3.4407547, y: -1.241, z: 10.277593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455246578}
@@ -595,7 +595,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1860740429
 BoxCollider:
@@ -609,7 +609,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0, z: 1}
-  m_Center: {x: 0, y: -0.5, z: 0}
+  m_Center: {x: 0, y: -0.76, z: 0}
 --- !u!1001 &8105144000939168038
 PrefabInstance:
   m_ObjectHideFlags: 0

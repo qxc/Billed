@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
     public float m_Thrust = 100f;
-    private bool can_Jump = true;
+    private bool can_jump = true;
     public BoxCollider feet;
 
     // Start is called before the first frame update
@@ -19,18 +19,22 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump") && can_Jump)
+        if (Input.GetButton("Jump") && can_jump)
         {
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
-            m_Rigidbody.AddForce(transform.up * m_Thrust);
-            can_Jump = false;
+            m_Rigidbody.AddForce(transform.up * m_Thrust, ForceMode.Impulse);
+            can_jump = false;
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            can_Jump = true;
+            if (contact.thisCollider == feet)
+            {
+                can_jump = true;
+            }
+
         }
     }
 }
