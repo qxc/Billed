@@ -7,10 +7,12 @@ public class PlayerShoot : MonoBehaviour
     private bool is_firing;
     public GameObject bullet_projectile;
     public float m_thrust = 100f;
+    public GameObject bullet_spawn;
 
     // Start is called before the first frame update
     void Start()
     {
+        //bullet_spawn.transform.position = transform.position;
     }
 
     // Update is called once per frame
@@ -25,8 +27,8 @@ public class PlayerShoot : MonoBehaviour
     {
         if (is_firing)
         {
-            GameObject bullet = Instantiate(bullet_projectile, transform.position, Quaternion.identity) as GameObject;
-            bullet.GetComponentInChildren<Rigidbody>().AddForce(0, 0, 100);
+            GameObject bullet = Instantiate(bullet_projectile, bullet_spawn.transform.position, Quaternion.identity) as GameObject;
+            bullet.GetComponentInChildren<Rigidbody>().AddRelativeForce(transform.forward * 5f, ForceMode.Impulse);
             is_firing = false;
         }
     }
