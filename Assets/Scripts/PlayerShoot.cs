@@ -27,7 +27,9 @@ public class PlayerShoot : MonoBehaviour
     {
         if (is_firing)
         {
-            GameObject bullet = Instantiate(bullet_projectile, bullet_spawn.transform.position, Quaternion.identity) as GameObject;
+            GameObject bullet = Instantiate(bullet_projectile) as GameObject;
+            bullet.transform.position = bullet_spawn.transform.position;
+            bullet.transform.rotation = bullet_spawn.transform.rotation;
             bullet.GetComponentInChildren<Rigidbody>().AddRelativeForce(transform.forward * 5f, ForceMode.Impulse);
             is_firing = false;
         }
