@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Debug.Log(transform.position.y - player.position.y);
+        // Debug.Log(transform.position.y - player.position.y);
         if (transform.position.x - player.position.x > 2f ){
             transform.position = new Vector3(player.position.x + 2f, transform.position.y, transform.position.z);
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,12 +147,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44448928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.94, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1860740427}
-  m_RootOrder: 1
+  m_Father: {fileID: 425582123}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &44448930
 BoxCollider:
@@ -198,7 +198,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.94, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 44448929}
   m_Father: {fileID: 1860740427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -925,6 +926,7 @@ GameObject:
   - component: {fileID: 1860740428}
   - component: {fileID: 1860740423}
   - component: {fileID: 1860740430}
+  - component: {fileID: 1860740429}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -950,6 +952,7 @@ MonoBehaviour:
   ground_acceleration_modifier: 51.96
   air_acceleration_modifier: 23.23
   bullet_spawn: {fileID: 425582122}
+  is_facing_left: 0
 --- !u!135 &1860740424
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1024,7 +1027,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425582123}
-  - {fileID: 44448929}
   m_Father: {fileID: 455246578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1044,6 +1046,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1860740429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860740422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc326e65005db1246857c1db06a041ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block_preview_prefab: {fileID: 3274615130319964651, guid: cc838d220c11bca45a10f802ab730e6f, type: 3}
 --- !u!114 &1860740430
 MonoBehaviour:
   m_ObjectHideFlags: 0

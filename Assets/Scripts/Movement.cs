@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     public float ground_acceleration_modifier = 50f;
     public float air_acceleration_modifier = 40f;
     public GameObject bullet_spawn;
+    public bool is_facing_left;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class Movement : MonoBehaviour
             bullet_spawn.transform.position = new Vector3(transform.position.x - 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
             bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 180, bullet_spawn.transform.eulerAngles.z);
             m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
+            is_facing_left = true;
         }
 
         if (Input.GetAxis("Horizontal") > 0f && m_rigidbody.velocity.x < top_speed)
@@ -52,6 +54,7 @@ public class Movement : MonoBehaviour
             bullet_spawn.transform.position = new Vector3(transform.position.x + 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
             bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 0, bullet_spawn.transform.eulerAngles.z);
             m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
+            is_facing_left = false;
         }
     }
 
