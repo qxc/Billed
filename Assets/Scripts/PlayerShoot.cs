@@ -27,6 +27,12 @@ public class PlayerShoot : MonoBehaviour
     }
     void FixedUpdate()
     {
+        float t = Input.GetAxis("HorizontalLook");
+        if (t > 0)
+        {
+            Debug.Log(t);
+        }
+        
         if (is_firing && shoot_cooldown + last_shoot_time < Time.time)
         {
             GameObject bullet = Instantiate(bullet_projectile) as GameObject;

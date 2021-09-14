@@ -63,7 +63,6 @@ public class PlayerBlockPlace : MonoBehaviour
         if (Input.GetButtonDown("Fire3"))
         {
             is_previewing_block = true;
-            Debug.Log(transform.position);
         }
         if (Input.GetButtonUp("Fire3"))
         {
