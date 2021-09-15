@@ -30,8 +30,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump") && jumps_remaining > 0 && last_jump_time + jump_cooldown < (Time.time ))
-        {
+        if (Input.GetButton("Jump") && jumps_remaining > 0 && last_jump_time + jump_cooldown < (Time.time )) {
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             m_rigidbody.AddForce(transform.up * jump_thrust, ForceMode.Impulse);
             last_jump_time = Time.time;
@@ -41,33 +40,30 @@ public class Movement : MonoBehaviour
 
         float acceleration_modifier = is_grounded ? ground_acceleration_modifier : air_acceleration_modifier;
 
-        if (Input.GetAxis("Horizontal") < 0f && m_rigidbody.velocity.x > -top_speed)
-        {
-            //bullet_spawn.transform.position = new Vector3(transform.position.x - 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
-            //bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 180, bullet_spawn.transform.eulerAngles.z);
+        if (Input.GetAxis("Horizontal") < 0f && m_rigidbody.velocity.x > -top_speed) {
             m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
+        }
+
+        if (Input.GetAxis("Horizontal") > 0f && m_rigidbody.velocity.x < top_speed) {
+            m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
+        }
+
+        if (Input.GetAxis("HorizontalLook") < 0f ) {
             is_facing_left = true;
         }
 
-        if (Input.GetAxis("Horizontal") > 0f && m_rigidbody.velocity.x < top_speed)
-        {
-            //bullet_spawn.transform.position = new Vector3(transform.position.x + 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
-            //bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 0, bullet_spawn.transform.eulerAngles.z);
-            m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
+        if (Input.GetAxis("HorizontalLook") > 0f ) {
             is_facing_left = false;
         }
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
     }
-    void OnTriggerStay(Collider collider)
-    {
+    void OnTriggerStay(Collider collider) {
         is_grounded = true;
         jumps_remaining = max_jumps;
     }
-    private void OnTriggerExit(Collider other)
-    {
+    private void OnTriggerExit(Collider other) {
         is_grounded = false;
     }
 }
