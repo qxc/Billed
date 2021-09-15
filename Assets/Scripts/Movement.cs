@@ -43,16 +43,16 @@ public class Movement : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") < 0f && m_rigidbody.velocity.x > -top_speed)
         {
-            bullet_spawn.transform.position = new Vector3(transform.position.x - 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
-            bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 180, bullet_spawn.transform.eulerAngles.z);
+            //bullet_spawn.transform.position = new Vector3(transform.position.x - 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
+            //bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 180, bullet_spawn.transform.eulerAngles.z);
             m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
             is_facing_left = true;
         }
 
         if (Input.GetAxis("Horizontal") > 0f && m_rigidbody.velocity.x < top_speed)
         {
-            bullet_spawn.transform.position = new Vector3(transform.position.x + 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
-            bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 0, bullet_spawn.transform.eulerAngles.z);
+            //bullet_spawn.transform.position = new Vector3(transform.position.x + 1, bullet_spawn.transform.position.y, bullet_spawn.transform.position.z);
+            //bullet_spawn.transform.eulerAngles = new Vector3(bullet_spawn.transform.eulerAngles.x, 0, bullet_spawn.transform.eulerAngles.z);
             m_rigidbody.AddForce(transform.right * Input.GetAxis("Horizontal") * acceleration_modifier, ForceMode.Force);
             is_facing_left = false;
         }
