@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 44448929}
   - component: {fileID: 44448930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425582123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,9 +212,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455246578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 700562453}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: floors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,6 +510,10 @@ PrefabInstance:
     - target: {fileID: 6784412326160296084, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
       propertyPath: m_Name
       value: Floor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784412326160296084, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7395422487431106969, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
       propertyPath: m_Mesh
@@ -869,6 +873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6784412326160296084, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
 --- !u!1 &1613618407
@@ -988,7 +996,7 @@ GameObject:
   - component: {fileID: 1860740423}
   - component: {fileID: 1860740430}
   - component: {fileID: 1860740429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,6 +1241,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952756690}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2070095717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3946551540031221495, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+  m_PrefabInstance: {fileID: 7792275504607961276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2070095724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070095717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801a561dadc68aa409c6323ba75dea84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_health: 1000
+  current_health: 100
 --- !u!1001 &7792275504607961276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,6 +1267,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3946551540031221495, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4859564869165463421, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1296,9 +1327,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5446631817586801049, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5459505206579879670, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: m_Name
       value: MrBossMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459505206579879670, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459505206579879670, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_TagString
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 6138665960741653279, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: m_Drag
@@ -1384,6 +1427,10 @@ PrefabInstance:
     - target: {fileID: 6784412326160296084, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784412326160296084, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5809004439034371487}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1296189115140850970}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,9 +252,10 @@ GameObject:
   - component: {fileID: 5696214326764140732}
   - component: {fileID: 6951699989618688159}
   - component: {fileID: 5347262561891132952}
+  - component: {fileID: 8376650803195294723}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,3 +354,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!114 &8376650803195294723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854140848811648119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd66cf7ef1b654d8b47720ff62173d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
