@@ -16,7 +16,6 @@ public class MrBossMan : MonoBehaviour
     {
         last_dive_time = Time.time; 
         boss_rigidbody = GetComponent<Rigidbody>();
-        Debug.Log(boss_rigidbody);
 
     }
 
