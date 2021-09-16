@@ -6,15 +6,18 @@ public class MrBossMan : MonoBehaviour
 {
     public GameObject player1;
     private float last_dive_time;
-    private float dive_cooldown = 1.5f;
+    public float dive_cooldown = 4f;
     private bool is_diving = false;
     private Rigidbody boss_rigidbody;
+    public float dive_force = 30f;
 
     // Start is called before the first frame update
     void Start()
     {
         last_dive_time = Time.time; 
-        Rigidbody boss_rigidbody = GetComponent<Rigidbody>();
+        boss_rigidbody = GetComponent<Rigidbody>();
+        Debug.Log(boss_rigidbody);
+
     }
 
     // Update is called once per frame
@@ -31,8 +34,8 @@ public class MrBossMan : MonoBehaviour
 
     private void FixedUpdate() {
         if ( is_diving ) {
-            Debug.Log(boss_rigidbody);
-            boss_rigidbody.AddForce(transform.forward, ForceMode.Force);
+            boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
+            is_diving = false;
         } 
     }
 }

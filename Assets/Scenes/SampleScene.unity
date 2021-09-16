@@ -1245,6 +1245,18 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4859564869165463421, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859564869165463421, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859564869165463421, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859564869165463421, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.44
       objectReference: {fileID: 0}
@@ -1288,10 +1300,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MrBossMan
       objectReference: {fileID: 0}
+    - target: {fileID: 6138665960741653279, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: m_Drag
+      value: 1.04
+      objectReference: {fileID: 0}
     - target: {fileID: 8067348546226334835, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: player1
       value: 
       objectReference: {fileID: 1860740422}
+    - target: {fileID: 8067348546226334835, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: dive_force
+      value: 31.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067348546226334835, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+      propertyPath: dive_cooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8979989417380241917, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
       propertyPath: m_Enabled
       value: 0
