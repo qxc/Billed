@@ -7,7 +7,7 @@ public class ObjectReferences : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Boss;
-
+    public GameObject MonsterSpawner;
     // Start is called before the first frame update
     void Start()
     {
