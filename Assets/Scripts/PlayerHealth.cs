@@ -20,9 +20,8 @@ public class PlayerHealth : MonoBehaviour
     }
     void get_hit(int damage, string damage_type)
     {
-        Debug.Log("OW!");
         current_health -= damage;
-        Debug.Log(current_health);
+        //Debug.Log(current_health);
         if (current_health <= 0)
         {
             die();
@@ -36,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         ActiveHitbox hitbox = other.GetComponent<ActiveHitbox>();
         if (hitbox)
         {

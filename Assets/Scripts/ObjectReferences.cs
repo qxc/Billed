@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveHitbox : MonoBehaviour
+public class ObjectReferences : MonoBehaviour
 {
-    public int damage = 10;
-    public string damage_type = "bludgeoning";
+    public GameObject Player1;
+    public GameObject Player2;
+    public GameObject Boss;
+
     // Start is called before the first frame update
     void Start()
     {
