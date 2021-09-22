@@ -21,6 +21,8 @@ public class MrBossMan : MonoBehaviour
     private float dive_force_permanent_range = 5f;
     private float dive_force_temporary_range = 5f;
     private float dive_force;
+    public float dive_windup = 1f;
+    private ParticleSystem dive_particles;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class MrBossMan : MonoBehaviour
         dive_force_permanent_mod = Random.Range(0f, dive_force_permanent_range);
         dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
+        dive_particles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -43,20 +46,28 @@ public class MrBossMan : MonoBehaviour
         //Debug.Log(transform.position);
         //Debug.Log(player1.transform.position);
         transform.LookAt(player1.transform);
+        if (last_dive_time + dive_cooldown - dive_windup < Time.time) {
+            Debug.Log("particles!");
+            Debug.Log(last_dive_time + dive_cooldown - dive_windup);
+        }
         if (last_dive_time + dive_cooldown < Time.time) {
-            is_diving = true;
+            Debug.Log("dive!");
+            Debug.Log(last_dive_time + dive_cooldown);
             last_dive_time = Time.time;
             dive_cooldown_temporary_mod = Random.Range(0f, temporary_range);
             dive_cooldown = base_dive_cooldown + dive_cooldown_permanent_mod + dive_cooldown_temporary_mod;
+            dive();
         }
+
     }
 
-    private void FixedUpdate() {
-        if ( is_diving ) {
-            dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
-            dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
-            boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
-            is_diving = false;
-        } 
+    void dive() {
+        dive_particles.Play();
+        dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
+        dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
+        
+        boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
     }
+
+    private void FixedUpdate() { }
 }
