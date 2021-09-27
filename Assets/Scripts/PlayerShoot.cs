@@ -20,7 +20,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetAxis("FireTriggerRight") > 0)
         {
             is_firing = true;
         }

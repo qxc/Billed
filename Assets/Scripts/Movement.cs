@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump") && jumps_remaining > 0 && last_jump_time + jump_cooldown < (Time.time )) {
+        if (Input.GetButton("Fire4") && jumps_remaining > 0 && last_jump_time + jump_cooldown < (Time.time )) {
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             m_rigidbody.AddForce(transform.up * jump_thrust, ForceMode.Impulse);
             last_jump_time = Time.time;
