@@ -14,6 +14,7 @@ public class PlayerBlockPlace : MonoBehaviour
     private Movement movement_script;
     private float block_placement_distance = 3f;
 
+    GameObject stock_text;
     bool is_selecting_block = false;
     int is_changing_block_selection = 0;
     float selecting_cooldown = .3f;
@@ -46,6 +47,7 @@ public class PlayerBlockPlace : MonoBehaviour
                 all_blocks[selected_block].instantiated_block.SetActive(false);
             }
             block_preview = all_blocks[selected_block].instantiated_block;
+            block_preview.GetComponentInChildren<TextMesh>().text = all_blocks[selected_block].current_stock.ToString();
             Vector3 spawn_loc;
             Vector3 grid_position = RoundPosition(transform);
 
@@ -63,6 +65,10 @@ public class PlayerBlockPlace : MonoBehaviour
             if (is_placing_block)
             {
                 GameObject block = Instantiate(all_blocks[selected_block].block_prefab) as GameObject;
+                all_blocks[selected_block].current_stock--;
+                if (all_blocks[selected_block].current_stock == 0) {
+                    incrementIndex();
+                }
                 block.transform.position = block_preview.transform.position;
                 is_placing_block = false;
                 is_previewing_block = false;
@@ -106,8 +112,12 @@ public class PlayerBlockPlace : MonoBehaviour
         }
     }
 
-    void incrementIndex(int max_depth)
+    void incrementIndex(int max_depth = -1)
     {
+        if (max_depth == -1)
+        {
+            max_depth = all_blocks.Count;
+        }
         if (max_depth == 0)
         {
             return;
@@ -124,8 +134,11 @@ public class PlayerBlockPlace : MonoBehaviour
         }
     }
 
-    void decrementIndex(int max_depth)
+    void decrementIndex(int max_depth = -1)
     {
+        if (max_depth == -1) {
+            max_depth = all_blocks.Count;
+        }
         if (max_depth == 0)
         {
             return;
