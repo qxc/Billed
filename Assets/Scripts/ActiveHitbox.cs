@@ -6,6 +6,8 @@ public class ActiveHitbox : MonoBehaviour
 {
     public int damage = 10;
     public string damage_type = "bludgeoning";
+    public string damage_source = "player";
+    public bool is_active = false;
     // Start is called before the first frame update
     void Start()
     {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6636533274316197838}
   - component: {fileID: 7434405656516890290}
   - component: {fileID: 2436152777216625859}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +161,10 @@ PrefabInstance:
     - target: {fileID: 8192337030498336672, guid: 380db81122af43c4590f588064333048, type: 3}
       propertyPath: m_Name
       value: one_way_platform preview
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192337030498336672, guid: 380db81122af43c4590f588064333048, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 380db81122af43c4590f588064333048, type: 3}

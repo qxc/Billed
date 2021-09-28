@@ -6,7 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     private bool is_firing;
     public GameObject bullet_projectile;
-    public float m_thrust = 10f;
+    private float m_thrust = 8f;
     public GameObject bullet_spawn;
     private float last_shoot_time;
     public float shoot_cooldown = .6f;

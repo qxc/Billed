@@ -7,10 +7,12 @@ public class PlayerHealth : MonoBehaviour
 
     public int max_health = 1000;
     public int current_health = 400;
+    float get_hit_cooldown = 1f;
+    float last_get_hit_time;
     // Start is called before the first frame update
     void Start()
     {
-        
+        last_get_hit_time = Time.time;
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     void get_hit(int damage, string damage_type)
     {
         current_health -= damage;
+        gameObject.GetComponentInChildren<TextMesh>().text = current_health.ToString();
         //Debug.Log(current_health);
         if (current_health <= 0)
         {
@@ -35,12 +38,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.tag);
         ActiveHitbox hitbox = other.GetComponent<ActiveHitbox>();
-        if (hitbox)
+        if (hitbox && hitbox.is_active)
         {
-            get_hit(hitbox.damage, hitbox.damage_type);
+            if (last_get_hit_time + get_hit_cooldown < Time.time)
+            {
+                Debug.Log("getting hit");
+                get_hit(hitbox.damage, hitbox.damage_type);
+                last_get_hit_time = Time.time;
+            }
         }
-
     }
 }
