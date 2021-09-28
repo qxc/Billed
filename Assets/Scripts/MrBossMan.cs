@@ -30,6 +30,9 @@ public class MrBossMan : MonoBehaviour
     public float dive_active_duration = 1f;
     public float dive_recovery_duration = 1f;
 
+    [HideInInspector]
+    public int attack_state = 0; // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,28 +53,26 @@ public class MrBossMan : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        //Debug.Log(transform.position);
-        //Debug.Log(player1.transform.position);
         transform.LookAt(player1.transform);
         if (last_dive_time + dive_cooldown < Time.time && dive_state == 0) {
             //Debug.Log("particles!");
             dive_particles.Play();
             Debug.Log(last_dive_time + dive_cooldown);
-            dive_state = 1;
+            dive_state = attack_state = 1;
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration < Time.time && dive_state == 1) {
             dive();
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2) {
             //Debug.Log("active frames ended");
-            dive_state = 3;
+            dive_state = attack_state = 3;
+            
             dive_particles.Stop();
             dive_hitbox.is_active = false;
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3) {
             dive_recovery_end();
         }
-
     }
 
     void dive() {
@@ -82,11 +83,11 @@ public class MrBossMan : MonoBehaviour
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
         
         boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
-        dive_state = 2;
+        dive_state = attack_state = 2;
     }
     void dive_recovery_end() {
         //Debug.Log("recovery frames ended");
-        dive_state = 0;
+        dive_state = attack_state = 0;
         last_dive_time = Time.time;
         dive_cooldown_temporary_mod = Random.Range(0f, temporary_range);
         dive_cooldown = base_dive_cooldown + dive_cooldown_permanent_mod + dive_cooldown_temporary_mod;
