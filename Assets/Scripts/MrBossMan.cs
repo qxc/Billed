@@ -51,28 +51,32 @@ public class MrBossMan : MonoBehaviour
         dive_particles = GetComponent<ParticleSystem>();
     }
 
+    public void delay_dive()
+    {
+        dive_recovery_start();
+    }
+
     // Update is called once per frame
     void Update() {
         transform.LookAt(player1.transform);
         if (last_dive_time + dive_cooldown < Time.time && dive_state == 0) {
-            //Debug.Log("particles!");
-            dive_particles.Play();
-            Debug.Log(last_dive_time + dive_cooldown);
-            dive_state = attack_state = 1;
+            dive_startup();
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration < Time.time && dive_state == 1) {
             dive();
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2) {
-            //Debug.Log("active frames ended");
-            dive_state = attack_state = 3;
-            
-            dive_particles.Stop();
-            dive_hitbox.is_active = false;
+            dive_recovery_start();
         }
         if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3) {
             dive_recovery_end();
         }
+    }
+
+    void dive_startup()
+    {
+        dive_particles.Play();
+        dive_state = attack_state = 1;
     }
 
     void dive() {
@@ -85,6 +89,14 @@ public class MrBossMan : MonoBehaviour
         boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
         dive_state = attack_state = 2;
     }
+    
+    public void dive_recovery_start()
+    {
+        dive_state = attack_state = 3;
+        dive_particles.Stop();
+        dive_hitbox.is_active = false;
+    }
+
     void dive_recovery_end() {
         //Debug.Log("recovery frames ended");
         dive_state = attack_state = 0;

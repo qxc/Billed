@@ -961,6 +961,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33943ed4cbdfff74d9b0aeced06b817a, type: 3}
+--- !u!1001 &1578000718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1169960822421932887, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_Name
+      value: MiniMrBossMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.0359993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5682564
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09aed668e721fb94786655ac440ff177, type: 3}
 --- !u!1 &1613618407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,63 +1166,6 @@ Transform:
   m_Father: {fileID: 1458844870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1803596329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1169960822421932887, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_Name
-      value: MiniMrBossMan
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.644866
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767700942847779548, guid: 09aed668e721fb94786655ac440ff177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09aed668e721fb94786655ac440ff177, type: 3}
 --- !u!1001 &1834832433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 1000
   current_health: 100
+  damage_numbers_prefab: {fileID: 0}
 --- !u!1001 &4765044719336911361
 PrefabInstance:
   m_ObjectHideFlags: 0

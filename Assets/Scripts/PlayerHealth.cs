@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int max_health = 1000;
-    public int current_health = 400;
+    public float max_health = 1000;
+    public float current_health = 400;
     float get_hit_cooldown = 1f;
     float last_get_hit_time;
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         
     }
-    void get_hit(int damage, string damage_type)
+    void get_hit(float damage, string damage_type)
     {
         current_health -= damage;
         gameObject.GetComponentInChildren<TextMesh>().text = current_health.ToString();

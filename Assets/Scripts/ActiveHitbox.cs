@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActiveHitbox : MonoBehaviour
 {
-    public int damage = 10;
+    public float damage = 10;
     public string damage_type = "bludgeoning";
     public string damage_source = "player";
     public bool is_active = false;
