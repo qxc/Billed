@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectReferences : MonoBehaviour {
+public class GameManager : MonoBehaviour {
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Boss;

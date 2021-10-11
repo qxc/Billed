@@ -9,7 +9,7 @@ public class MonsterSpawner : MonoBehaviour
     private float spawn_cooldown_temporary_range;
     private float spawn_cooldown;
     private float last_spawn_time;
-    private ObjectReferences objectReferences;
+    private GameManager gameManager;
     public GameObject MrBossMan;
     public GameObject MiniMrBossMan;
     private GameObject player1;
@@ -21,8 +21,8 @@ public class MonsterSpawner : MonoBehaviour
         last_spawn_time = Time.time;
         spawn_cooldown_temporary_mod = Random.Range(0f, spawn_cooldown_temporary_range);
         spawn_cooldown = base_spawn_cooldown + spawn_cooldown_temporary_mod;
-        objectReferences = GameObject.FindWithTag("ObjectReferences").GetComponent<ObjectReferences>();
-        player1 = objectReferences.Player1;
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        player1 = gameManager.Player1;
 
 
     }

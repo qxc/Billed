@@ -22,12 +22,12 @@ public class PlayerBlockPlace : MonoBehaviour
     public List<PlaceableBlock> all_blocks;
     private int selected_block = 1; // an index in the all_blocks list
     // block_prefab, block_preview_prefab, current_stock
-    ObjectReferences objectReferences;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectReferences = GameObject.FindWithTag("ObjectReferences").GetComponent<ObjectReferences>();
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         //block_preview = Instantiate(block_preview_prefab) as GameObject;
         last_selection_time = Time.time;
         movement_script = gameObject.GetComponent<Movement>();
@@ -99,7 +99,7 @@ public class PlayerBlockPlace : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock > 0 && objectReferences.currentPhase == 0) {
+        if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock > 0 && gameManager.currentPhase == 0) {
             is_previewing_block = true;
         }
         else if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock == 0) {

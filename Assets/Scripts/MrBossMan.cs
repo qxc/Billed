@@ -36,9 +36,9 @@ public class MrBossMan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectReferences objectReferences = GameObject.FindWithTag("ObjectReferences").GetComponent<ObjectReferences>();
+        GameManager gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         dive_hitbox = gameObject.GetComponentInChildren<ActiveHitbox>();
-        player1 = objectReferences.Player1;
+        player1 = gameManager.Player1;
         last_dive_time = Time.time; 
         boss_rigidbody = GetComponent<Rigidbody>();
         dive_cooldown_permanent_mod = Random.Range(0f, permanent_range);
