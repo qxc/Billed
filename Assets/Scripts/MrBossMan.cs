@@ -58,7 +58,9 @@ public class MrBossMan : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        transform.LookAt(player1.transform);
+        if (dive_state != 2 ) {
+            transform.LookAt(player1.transform);
+        }
         if (last_dive_time + dive_cooldown < Time.time && dive_state == 0) {
             dive_startup();
         }
