@@ -1199,6 +1199,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Boss: {fileID: 0}
   MonsterSpawner: {fileID: 0}
+  currentPhase: -1
 --- !u!4 &1924031734
 Transform:
   m_ObjectHideFlags: 0
