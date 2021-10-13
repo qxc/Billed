@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public int currentPhase; // 0/1/2 == building/combat/levelup
     private float phaseStartTime;
+    public bool is_boss_fight;
     // Start is called before the first frame update
     void Start() {
         currentPhase = 0;
@@ -29,6 +30,13 @@ public class GameManager : MonoBehaviour {
         if ( currentPhase == 1 && phaseStartTime + combatPhaseLength < Time.time ) {
             Debug.Log("combat phase has ended");
             MonsterSpawner.SetActive(false);
+            GameObject[] minions = GameObject.FindGameObjectsWithTag("Boss");
+            foreach (GameObject minion in minions) {
+                Debug.Log(minion);
+                BossHealth bh = minion.GetComponentInChildren<BossHealth>();
+                Debug.Log(bh);
+                bh.die();
+            }
             currentPhase = 2;
         }
 

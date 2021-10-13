@@ -52,7 +52,7 @@ public class BossHealth : MonoBehaviour
         }
     }
 
-    void die()
+    public void die()
     {
         gameObject.SetActive(false);
     }
