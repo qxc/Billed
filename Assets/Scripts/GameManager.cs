@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(currentPhase);
         if (Input.GetButtonDown("Select") && currentPhase == 0) {
             Debug.Log("NEXT PHASE!");
             currentPhase = 1;
@@ -30,7 +29,15 @@ public class GameManager : MonoBehaviour {
         if ( currentPhase == 1 && phaseStartTime + combatPhaseLength < Time.time ) {
             Debug.Log("combat phase has ended");
             MonsterSpawner.SetActive(false);
+            currentPhase = 2;
+        }
 
+        if ( currentPhase == 2 ) {
+            PlayerUpgrades pupgrades = Player1.GetComponent<PlayerUpgrades>();
+            pupgrades.addUpgrade(new PlayerUpgrade("Generic Levelup", 1f, 10f));
+            Player1.GetComponent<PlayerBlockPlace>().all_blocks[0].current_stock += 10;
+            Player1.GetComponent<PlayerBlockPlace>().all_blocks[1].current_stock += 10;
+            currentPhase = 0;
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaceableBlock : MonoBehaviour
 {
+    public string blockName;
     public GameObject block_preview_prefab;
     public GameObject block_prefab;
     public GameObject instantiated_block;

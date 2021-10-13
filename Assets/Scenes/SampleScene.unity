@@ -1177,8 +1177,8 @@ GameObject:
   - component: {fileID: 1924031734}
   - component: {fileID: 1924031733}
   m_Layer: 0
-  m_Name: ObjectReferences
-  m_TagString: ObjectReferences
+  m_Name: GameManager
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1198,7 +1198,8 @@ MonoBehaviour:
   Player1: {fileID: 1860740422}
   Player2: {fileID: 0}
   Boss: {fileID: 0}
-  MonsterSpawner: {fileID: 0}
+  MonsterSpawner: {fileID: 561973003}
+  combatPhaseLength: 0
   currentPhase: -1
 --- !u!4 &1924031734
 Transform:

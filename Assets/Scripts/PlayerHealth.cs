@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public float max_health = 1000;
-    public float current_health = 400;
+    public float base_max_health = 100;
+    public float max_health = 100;
+    public float current_health = 100;
     float get_hit_cooldown = 1f;
     float last_get_hit_time;
     // Start is called before the first frame update
