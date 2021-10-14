@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1963198393559980874}
   m_Layer: 11
   m_Name: DiveAttack
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 2839469984486585436}
   m_Layer: 8
   m_Name: Sphere
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4579872664666070431}
   m_Layer: 8
   m_Name: Capsule
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

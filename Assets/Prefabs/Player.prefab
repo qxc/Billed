@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 4765044720831682383}
   - component: {fileID: 4765044720831682380}
   - component: {fileID: 4765044720831682382}
+  - component: {fileID: 6053098505768231709}
   m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
@@ -378,5 +379,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dda057a1845aa4bad45f423847f9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_max_health: 100
   max_health: 1000
   current_health: 400
+--- !u!114 &6053098505768231709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765044720831682375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0bd5ce19680e34282951cbde7ec183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackModifier: 0
+  healthModifier: 0
+  playerHealth: {fileID: 4765044720831682382}
