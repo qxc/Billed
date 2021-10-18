@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &561973004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82acd99a053e2c4aadd9ba8f3765f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MrBossMan: {fileID: 5459505206579879670, guid: 857580bd3c888d44ca98dd0d5cba66f3, type: 3}
+  boss: {fileID: 0}
+  prefab_boss: {fileID: 4698145010717908327, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
   MiniMrBossMan: {fileID: 1169960822421932887, guid: 09aed668e721fb94786655ac440ff177, type: 3}
 --- !u!4 &561973005
 Transform:
@@ -1097,7 +1098,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1924031734}
   - component: {fileID: 1924031733}
-  - component: {fileID: 1924031735}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   Boss: {fileID: 0}
   MonsterSpawner: {fileID: 561973003}
   combatPhaseLength: 0
-  currentPhase: -1
-  is_boss_fight: 0
+  current_phase: 0
+  current_level: 2
 --- !u!4 &1924031734
 Transform:
   m_ObjectHideFlags: 0
@@ -1138,18 +1138,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924031735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924031732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 548c46f0d22f5b54096039499cd83ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1928938181
 GameObject:
   m_ObjectHideFlags: 0
