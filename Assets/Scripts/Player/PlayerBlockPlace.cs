@@ -99,7 +99,7 @@ public class PlayerBlockPlace : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock > 0 && gameManager.currentPhase == 0) {
+        if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock > 0 && gameManager.current_phase == 0) {
             is_previewing_block = true;
         }
         else if (Input.GetButtonDown("Fire3") && all_blocks[selected_block].current_stock == 0) {

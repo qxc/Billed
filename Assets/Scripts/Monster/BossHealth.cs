@@ -36,6 +36,7 @@ public class BossHealth : MonoBehaviour
         
         if (current_health <= 0)
         {
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().minionDied();
             die();
         }
     }
