@@ -20,7 +20,7 @@ public class MrBossMan : MonoBehaviour
     private ActiveHitbox dive_hitbox;
 
     private int dive_state = 0; // 0/1/2/3 == not diving / dive startup / dive active / dive recovery
-    private float base_dive_force = 150f;
+    public float base_dive_force = 350f;
     private float dive_force_permanent_mod;
     private float dive_force_temporary_mod;
     private float dive_force_permanent_range = 5f;

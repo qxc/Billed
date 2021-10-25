@@ -22,7 +22,7 @@ public class PlayerUpgrades : MonoBehaviour {
         recalculateModifiers();
     }
     void recalculateModifiers() {
-        Debug.Log("Recalc");
+        //Debug.Log("Recalc");
         attackModifier = 0f;
         healthModifier = 0f;
         foreach (PlayerUpgrade playerUpgrade in upgrades) {
@@ -31,8 +31,8 @@ public class PlayerUpgrades : MonoBehaviour {
 
         }
         playerHealth.max_health = playerHealth.base_max_health + healthModifier;
-        Debug.Log(attackModifier);
-        Debug.Log(healthModifier);
+        //Debug.Log(attackModifier);
+        //Debug.Log(healthModifier);
 
     }
 }
