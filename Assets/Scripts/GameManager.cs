@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
             Debug.Log("combat phase has ended");
             GameObject[] minions = GameObject.FindGameObjectsWithTag("Boss");
             foreach (GameObject minion in minions) {
-                BossHealth bh = minion.GetComponentInChildren<BossHealth>();
+                DiveBossHealth bh = minion.GetComponentInChildren<DiveBossHealth>();
                 bh.die();
             }
             current_phase = 2;

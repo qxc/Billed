@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MrBossMan : MonoBehaviour
+public class DiveMinionAttack : MonoBehaviour
 {
     public GameObject player1;
     private float last_dive_time;
     private float base_dive_cooldown = 1.5f;
-    
+
     private float dive_cooldown_temporary_mod;
     private float dive_cooldown_permanent_mod;
     private float dive_cooldown;
 
     private float permanent_range = 2f;
     private float temporary_range = 2f;
-    
+
     private Rigidbody boss_rigidbody;
     private ParticleSystem dive_particles;
     private ActiveHitbox dive_hitbox;
@@ -39,12 +39,12 @@ public class MrBossMan : MonoBehaviour
         GameManager gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         dive_hitbox = gameObject.GetComponentInChildren<ActiveHitbox>();
         player1 = gameManager.Player1;
-        last_dive_time = Time.time; 
+        last_dive_time = Time.time;
         boss_rigidbody = GetComponent<Rigidbody>();
         dive_cooldown_permanent_mod = Random.Range(0f, permanent_range);
         dive_cooldown_temporary_mod = Random.Range(0f, temporary_range);
         dive_cooldown = base_dive_cooldown + dive_cooldown_permanent_mod + dive_cooldown_temporary_mod;
-        
+
         dive_force_permanent_mod = Random.Range(0f, dive_force_permanent_range);
         dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
@@ -57,20 +57,26 @@ public class MrBossMan : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        if (dive_state != 2 ) {
+    void Update()
+    {
+        if (dive_state != 2)
+        {
             transform.LookAt(player1.transform);
         }
-        if (last_dive_time + dive_cooldown < Time.time && dive_state == 0) {
+        if (last_dive_time + dive_cooldown < Time.time && dive_state == 0)
+        {
             dive_startup();
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration < Time.time && dive_state == 1) {
+        if (last_dive_time + dive_cooldown + dive_startup_duration < Time.time && dive_state == 1)
+        {
             dive();
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2) {
+        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2)
+        {
             dive_recovery_start();
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3) {
+        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3)
+        {
             dive_recovery_end();
         }
     }
@@ -81,17 +87,18 @@ public class MrBossMan : MonoBehaviour
         dive_state = attack_state = 1;
     }
 
-    void dive() {
+    void dive()
+    {
         //Debug.Log("dive!");
         dive_hitbox.is_active = true;
         //Debug.Log(last_dive_time + dive_cooldown);
         dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
-        
+
         boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
         dive_state = attack_state = 2;
     }
-    
+
     public void dive_recovery_start()
     {
         dive_state = attack_state = 3;
@@ -99,7 +106,8 @@ public class MrBossMan : MonoBehaviour
         dive_hitbox.is_active = false;
     }
 
-    void dive_recovery_end() {
+    void dive_recovery_end()
+    {
         //Debug.Log("recovery frames ended");
         dive_state = attack_state = 0;
         last_dive_time = Time.time;
