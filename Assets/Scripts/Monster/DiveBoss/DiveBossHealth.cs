@@ -6,9 +6,10 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
 {
     public float max_health { get; set; }
     public float current_health { get; set; }
+    public float weakspot_health;
     public GameObject _damage_numbers_prefab;
-    public GameObject damage_numbers_prefab
-    {
+    public GameObject crit_hurtbox_prefab;
+    public GameObject damage_numbers_prefab {
         get
         {
             return _damage_numbers_prefab;
@@ -18,30 +19,34 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
             _damage_numbers_prefab = value;
         }
     }
+
+    public HingeJoint hinge_joint;
     // Start is called before the first frame update
     void Start()
     {
         max_health = 1000;
         current_health = 400;
+        weakspot_health = 60;
+        create_weakspot();
     }
 
     // Update is called once per frame
     void Update()
     {
     }
+
+    public void create_weakspot()
+    {
+        GameObject weakspot = Instantiate(crit_hurtbox_prefab) as GameObject;
+        weakspot.transform.position = gameObject.transform.position + new Vector3(0, 2.5f, 0);
+        hinge_joint = weakspot.GetComponent<HingeJoint>();
+        hinge_joint.anchor = new Vector3(0, -1.35f, 0);
+        hinge_joint.connectedBody = gameObject.GetComponent<Rigidbody>();
+    }
+
     public void get_hit(float damage, string damage_type) {
-        Debug.Log("BOSS GOT HIT");
-        // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
-        DiveBossAttack monster_script = gameObject.GetComponent<DiveBossAttack>();
-        int attack_state = monster_script.attack_state;
+        //Debug.Log("BOSS GOT HIT");
         float damage_modifier = 1f;
-        if (attack_state == 1) {
-            monster_script.delay_dive();
-            damage_modifier = damage_modifier + .5f;
-        }
-        if (attack_state == 2) {
-            damage_modifier = damage_modifier + 1f;
-        }
         float damage_taken = damage * damage_modifier;
         make_damage_numbers(damage_taken, damage_modifier);
         current_health -= damage_taken;
@@ -54,8 +59,16 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
     }
 
     public void get_weakspot_hit(float damage, string damage_type) {
-        Debug.Log("CRITICAL OUCH!");
+        DiveBossAttack monster_script = gameObject.GetComponent<DiveBossAttack>();
+        weakspot_health = weakspot_health - damage;
+        if (weakspot_health < 0) {
+            monster_script.delay_dive();
+            Destroy(hinge_joint);
+        }
+        get_hit(damage, damage_type);
     }
+
+
 
     public void make_damage_numbers(float damage_taken, float damage_modifier)
     {
