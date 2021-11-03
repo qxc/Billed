@@ -1158,6 +1158,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
+      propertyPath: m_BreakForce
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
       propertyPath: m_Limits.max
       value: 42.9
       objectReference: {fileID: 0}
@@ -1166,7 +1170,19 @@ PrefabInstance:
       value: -48.6
       objectReference: {fileID: 0}
     - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
+      propertyPath: m_BreakTorque
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
+      propertyPath: m_Limits.bounciness
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
       propertyPath: m_EnablePreprocessing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214308607262486422, guid: 3a3e6c69885ab0e4fb48bfc14bcc2a6c, type: 3}
+      propertyPath: m_Limits.contactDistance
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
