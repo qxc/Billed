@@ -117,7 +117,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 40
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &7278903534590767074
 MonoBehaviour:
@@ -150,6 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakspot_health: 0
+  weakspot_max_health: 0
+  weakspot_destroyed_time: 0
+  weakspot_respawn_timer: 0
   _damage_numbers_prefab: {fileID: 6409240441655213062, guid: 286941dfe45deba40b5185fa15540069, type: 3}
   crit_hurtbox_prefab: {fileID: 1193441441906942960, guid: d15ea12224991e94794e43e637ac2a54, type: 3}
   hinge_joint: {fileID: 7381511004279764902, guid: d15ea12224991e94794e43e637ac2a54, type: 3}
@@ -5160,7 +5163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcd66cf7ef1b654d8b47720ff62173d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
   damage_type: bludgeoning
   damage_source: player
   is_active: 0
