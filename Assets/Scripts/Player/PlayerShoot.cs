@@ -9,7 +9,7 @@ public class PlayerShoot : MonoBehaviour
     private float m_thrust = 6f;
     public GameObject bullet_spawn;
     private float last_shoot_time;
-    public float shoot_cooldown = .6f;
+    public float shoot_cooldown = 1.2f;
     // Start is called before the first frame update
     void Start()
     {

@@ -24,6 +24,7 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
     }
 
     public HingeJoint hinge_joint;
+    DiveBossAttack monster_script;
     // Start is called before the first frame update
     void Start() {
         weakspot_destroyed_time = Time.time;
@@ -31,6 +32,7 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
         max_health = 1000;
         weakspot_max_health = 90;
         current_health = 400;
+        monster_script = gameObject.GetComponent<DiveBossAttack>();
         create_weakspot();
     }
 
@@ -43,11 +45,15 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
 
     public void create_weakspot() {
         GameObject weakspot = Instantiate(crit_hurtbox_prefab) as GameObject;
-        weakspot.transform.position = gameObject.transform.position + new Vector3(0, 2.5f, 0);
+        //transform.eulerAngles = new Vector3( 0, transform.eulerAngles.y + 180, transform.eulerAngles.z );
+        //weakspot.transform.position = gameObject.transform.position + new Vector3(0, 2.5f, 0);
+        weakspot.transform.position = gameObject.transform.position + gameObject.transform.up * 3f;
+        weakspot.transform.rotation = gameObject.transform.rotation;
         hinge_joint = weakspot.GetComponent<HingeJoint>();
         hinge_joint.anchor = new Vector3(0, -1.35f, 0);
         hinge_joint.connectedBody = gameObject.GetComponent<Rigidbody>();
         weakspot_health = weakspot_max_health;
+        monster_script.dive_recovery_end();
     }
 
     public void get_hit(float damage, string damage_type) {
@@ -65,10 +71,9 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
     }
 
     public void get_weakspot_hit(float damage, string damage_type) {
-        DiveBossAttack monster_script = gameObject.GetComponent<DiveBossAttack>();
         weakspot_health = weakspot_health - damage;
         if (weakspot_health < 0) {
-            monster_script.delay_dive();
+            monster_script.destroyed_weakspot();
             Destroy(hinge_joint);
             weakspot_destroyed_time = Time.time;
         }

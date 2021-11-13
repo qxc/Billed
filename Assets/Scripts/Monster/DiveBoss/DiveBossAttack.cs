@@ -45,9 +45,8 @@ public class DiveBossAttack : MonoBehaviour
         dive_particles = GetComponent<ParticleSystem>();
     }
 
-    public void delay_dive() {
-        dive_recovery_end();
-        dive_particles.Stop();
+    public void destroyed_weakspot() {
+        dive_startup();
     }
 
     // Update is called once per frame
@@ -83,7 +82,6 @@ public class DiveBossAttack : MonoBehaviour
         dive_force = base_dive_force + dive_force_temporary_mod;
         
         boss_rigidbody.AddForce(transform.forward * dive_force, ForceMode.Impulse);
-        //boss_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         dive_state = attack_state = 2;
     }
     
@@ -94,7 +92,7 @@ public class DiveBossAttack : MonoBehaviour
         dive_hitbox.is_active = false;
     }
 
-    void dive_recovery_end() {
+    public void dive_recovery_end() {
         //Debug.Log("recovery frames ended");
         dive_state = attack_state = 0;
         last_dive_time = Time.time;
