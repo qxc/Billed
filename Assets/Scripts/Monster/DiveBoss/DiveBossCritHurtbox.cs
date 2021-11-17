@@ -12,8 +12,6 @@ public class DiveBossCritHurtbox : MonoBehaviour
     void Start()
     {
         crit_multi = 1.5f;
-        health_manager = GameObject.Find("DiveBoss").GetComponentInChildren<DiveBossHealth>();
-        Debug.Log(health_manager);
     }
 
     // Update is called once per frame
@@ -24,6 +22,9 @@ public class DiveBossCritHurtbox : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         //Debug.Log("COLLISION");
+        if (health_manager == null) {
+            health_manager = GameObject.Find("DiveBoss(Clone)").GetComponentInChildren<DiveBossHealth>();
+        }
         ActiveHitbox hitbox = collision.gameObject.GetComponent<ActiveHitbox>();
         if (hitbox) {
             health_manager.get_weakspot_hit(hitbox.damage*crit_multi, hitbox.damage_type);

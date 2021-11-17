@@ -31,8 +31,8 @@ public class PlayerUpgrades : MonoBehaviour {
 
         }
         playerHealth.max_health = playerHealth.base_max_health + healthModifier;
+        playerHealth.current_health = playerHealth.current_health + healthModifier;
         //Debug.Log(attackModifier);
         //Debug.Log(healthModifier);
-
     }
 }

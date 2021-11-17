@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
         current_phase = 0;
         current_level = 1;
-        combatPhaseLength = 10;
+        combatPhaseLength = 60;
         phaseStartTime = Time.time;
     }
 
@@ -29,12 +29,12 @@ public class GameManager : MonoBehaviour {
         }
         if (current_phase == 1 && phaseStartTime + combatPhaseLength < Time.time) {
             Debug.Log("combat phase has ended");
+            current_phase = 2;
             GameObject[] minions = GameObject.FindGameObjectsWithTag("Boss");
             foreach (GameObject minion in minions) {
-                DiveBossHealth bh = minion.GetComponentInChildren<DiveBossHealth>();
+                DiveMinionHealth bh = minion.GetComponentInChildren<DiveMinionHealth>();
                 bh.die();
             }
-            current_phase = 2;
         }
 
         if (current_phase == 2) {

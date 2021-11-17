@@ -46,7 +46,9 @@ public class DiveBossAttack : MonoBehaviour
     }
 
     public void destroyed_weakspot() {
-        dive_startup();
+        if (dive_state == 2 || dive_state == 3) {
+            dive_startup();
+        }
     }
 
     // Update is called once per frame
