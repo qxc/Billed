@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     float last_dash_time;
     float dash_cooldown = 1f;
     float dash_force = 150f;
+    ParticleSystem jump_particles;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class Movement : MonoBehaviour
         jumps_remaining = max_jumps;
         last_jump_time = Time.time;
         last_dash_time = Time.time;
+        jump_particles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class Movement : MonoBehaviour
             m_rigidbody.AddForce(transform.up * jump_thrust, ForceMode.Impulse);
             last_jump_time = Time.time;
             jumps_remaining--;
+            jump_particles.Play();
         }
 
         float acceleration_modifier = is_grounded ? ground_acceleration_modifier : air_acceleration_modifier;
