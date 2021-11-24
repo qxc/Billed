@@ -7,29 +7,23 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
     public float max_health { get; set; }
     public float current_health { get; set; }
     public GameObject _damage_numbers_prefab;
-    public GameObject damage_numbers_prefab
-    {
-        get
-        {
+    public GameObject damage_numbers_prefab {
+        get {
             return _damage_numbers_prefab;
         }
-        set
-        {
+        set {
             _damage_numbers_prefab = value;
         }
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         max_health = 50;
         current_health = 50;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    }
+    void Update() { }
     public void get_hit(float damage, string damage_type) {
         // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
         DiveMinionAttack monster_script = gameObject.GetComponent<DiveMinionAttack>();
@@ -70,9 +64,10 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
         }
     }
 
-    public void die()
-    {
-        gameObject.SetActive(false);
+    public void die() {
+        //gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
+
     }
 
     private void OnTriggerEnter(Collider other)
