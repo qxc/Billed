@@ -26,9 +26,15 @@ public class DiveMinionAttack : MonoBehaviour
     private float dive_force_permanent_range = 5f;
     private float dive_force_temporary_range = 5f;
     private float dive_force;
+    private float dive_startup_time;
     public float dive_startup_duration = 1.5f;
     public float dive_active_duration = 1f;
     public float dive_recovery_duration = 1f;
+
+    float vertical_float_speed = 50f;
+    float horizontal_float_speed = 50f;
+    float vertical_dive_min_range = 4f;
+    float horizontal_dive_max_range = 5f;
 
     [HideInInspector]
     public int attack_state = 0; // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
@@ -51,47 +57,54 @@ public class DiveMinionAttack : MonoBehaviour
         dive_particles = GetComponent<ParticleSystem>();
     }
 
-    public void delay_dive()
-    {
+    public void delay_dive() {
         dive_recovery_start();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (dive_state != 2)
-        {
+
+        if (dive_state != 2) {
             transform.LookAt(player1.transform);
         }
-        if (last_dive_time + dive_cooldown < Time.time && dive_state == 0)
-        {
-            dive_startup();
+        if (last_dive_time + dive_cooldown < Time.time && dive_state == 0) {
+            bool do_dive = true;
+            if (gameObject.transform.position.y - player1.transform.position.y < vertical_dive_min_range) {
+                do_dive = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * vertical_float_speed);
+            }
+            if (gameObject.transform.position.x - player1.transform.position.x > horizontal_dive_max_range) {
+                do_dive = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * horizontal_float_speed);
+            }
+            if (player1.transform.position.x - gameObject.transform.position.x > horizontal_dive_max_range) {
+                do_dive = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * -horizontal_float_speed);
+            }
+            if (do_dive) {
+                dive_startup();
+            }
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration < Time.time && dive_state == 1)
-        {
+        if (dive_startup_time + dive_startup_duration < Time.time && dive_state == 1) {
             dive();
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2)
-        {
+        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration < Time.time && dive_state == 2) {
             dive_recovery_start();
         }
-        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3)
-        {
+        if (last_dive_time + dive_cooldown + dive_startup_duration + dive_active_duration + dive_recovery_duration < Time.time && dive_state == 3) {
             dive_recovery_end();
         }
     }
 
-    void dive_startup()
-    {
+    void dive_startup() {
         dive_particles.Play();
+        dive_startup_time = Time.time;
         dive_state = attack_state = 1;
     }
 
-    void dive()
-    {
-        //Debug.Log("dive!");
+    void dive() {
         dive_hitbox.is_active = true;
-        //Debug.Log(last_dive_time + dive_cooldown);
         dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
 
@@ -115,5 +128,4 @@ public class DiveMinionAttack : MonoBehaviour
         dive_cooldown = base_dive_cooldown + dive_cooldown_permanent_mod + dive_cooldown_temporary_mod;
     }
 
-    private void FixedUpdate() { }
 }

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
         current_phase = 0;
         current_level = 1;
-        combatPhaseLength = 10;
+        combatPhaseLength = 30;
         phaseStartTime = Time.time;
     }
 
