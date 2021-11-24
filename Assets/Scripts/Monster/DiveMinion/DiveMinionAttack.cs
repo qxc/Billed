@@ -33,8 +33,10 @@ public class DiveMinionAttack : MonoBehaviour
 
     float vertical_float_speed = 50f;
     float horizontal_float_speed = 50f;
-    float vertical_dive_min_range = 4f;
-    float horizontal_dive_max_range = 5f;
+    float vertical_dive_min_range = 2f;
+    float horizontal_dive_max_range = 3f;
+    float vertical_dive_min_range_range = 2f;
+    float horizontal_dive_max_range_range = 3f;
 
     [HideInInspector]
     public int attack_state = 0; // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
@@ -55,6 +57,11 @@ public class DiveMinionAttack : MonoBehaviour
         dive_force_temporary_mod = Random.Range(0f, dive_force_temporary_range);
         dive_force = base_dive_force + dive_force_permanent_mod + dive_force_temporary_mod;
         dive_particles = GetComponent<ParticleSystem>();
+
+        vertical_dive_min_range = vertical_dive_min_range + Random.Range(0f, vertical_dive_min_range_range);
+        horizontal_dive_max_range = horizontal_dive_max_range + Random.Range(0f, horizontal_dive_max_range_range);
+
+
     }
 
     public void delay_dive() {
