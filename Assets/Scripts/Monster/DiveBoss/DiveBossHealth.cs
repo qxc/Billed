@@ -50,7 +50,7 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
         weakspot.transform.position = gameObject.transform.position + gameObject.transform.up * 3f;
         weakspot.transform.rotation = gameObject.transform.rotation;
         hinge_joint = weakspot.GetComponent<HingeJoint>();
-        hinge_joint.anchor = new Vector3(0, -1.35f, 0);
+        hinge_joint.anchor = new Vector3(0, -3f, 0);
         hinge_joint.connectedBody = gameObject.GetComponent<Rigidbody>();
         weakspot_health = weakspot_max_health;
         monster_script.dive_recovery_end();

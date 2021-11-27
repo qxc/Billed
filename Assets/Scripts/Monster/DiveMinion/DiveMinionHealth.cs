@@ -50,7 +50,8 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
     }
 
     public void get_weakspot_hit(float damage, string damage_type) {
-
+        get_hit(damage, damage_type);
+        Debug.Log("Critical Hit");
     }
     public void make_damage_numbers(float damage_taken, float damage_modifier) {
         GameObject damage_numbers = Instantiate(damage_numbers_prefab) as GameObject;
