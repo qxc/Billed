@@ -6,7 +6,7 @@ public class DiveMinionCritHurtbox : MonoBehaviour
 {
     // Later this can be replaced by the stats on the player's weapon
     private float crit_multi;
-    public DiveMinionHealth health_manager;
+    public IMonsterHealth health_manager;
     GameObject connected_body;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class DiveMinionCritHurtbox : MonoBehaviour
             connected_body = gameObject.GetComponent<FixedJoint>().connectedBody.gameObject;
         }
         if (health_manager == null) {
-            health_manager = connected_body.GetComponentInChildren<DiveMinionHealth>();
+            health_manager = connected_body.GetComponent<IMonsterHealth>();
         }
         ActiveHitbox hitbox = collision.gameObject.GetComponent<ActiveHitbox>();
         if (hitbox) {

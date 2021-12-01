@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 9142167943484653179}
   - component: {fileID: 3652026913377103410}
   - component: {fileID: 7924575439903919049}
-  - component: {fileID: 6008758922458994949}
-  - component: {fileID: 8327888864507281395}
   - component: {fileID: 4189590699601998233}
   - component: {fileID: 9182058197126421925}
   - component: {fileID: 7933362105787008666}
+  - component: {fileID: 3061634742639995303}
+  - component: {fileID: 4883377522527018838}
   m_Layer: 8
   m_Name: DiveMinionHeadWeakSpot
   m_TagString: Boss
@@ -120,37 +120,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &6008758922458994949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195179035108836246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b6d7727ef09d64684b3f8a81bdb679, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  base_dive_force: 350
-  dive_startup_duration: 1.5
-  dive_active_duration: 1
-  dive_recovery_duration: 1
-  attack_state: 0
---- !u!114 &8327888864507281395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195179035108836246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea0fcfbfd2896742974b77c87c0ab6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage_numbers_prefab: {fileID: 6409240441655213062, guid: 286941dfe45deba40b5185fa15540069, type: 3}
 --- !u!199 &4189590699601998233
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4936,6 +4905,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakspot_prefab: {fileID: 307000056876264583, guid: a9e1bc4697bec40469ff8895c7f238b9, type: 3}
+--- !u!114 &3061634742639995303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195179035108836246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c75cdd24f4714b49b5c1fdb003d3387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage_numbers_prefab: {fileID: 6409240441655213062, guid: 286941dfe45deba40b5185fa15540069, type: 3}
+--- !u!114 &4883377522527018838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195179035108836246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04d6df3ed0619141942dc2f030b2be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  base_dive_force: 250
+  dive_startup_duration: 1.5
+  dive_active_duration: 1
+  dive_recovery_duration: 1
+  attack_state: 0
 --- !u!1 &209196951215482105
 GameObject:
   m_ObjectHideFlags: 0

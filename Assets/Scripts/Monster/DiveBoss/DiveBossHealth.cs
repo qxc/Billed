@@ -56,15 +56,12 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
         monster_script.dive_recovery_end();
     }
 
-    public void get_hit(float damage, string damage_type) {
+    public void get_hit(float damage, string damage_type, bool is_crit) {
         //Debug.Log("BOSS GOT HIT");
-        float damage_modifier = 1f;
-        float damage_taken = damage * damage_modifier;
-        make_damage_numbers(damage_taken, damage_modifier);
-        current_health -= damage_taken;
+        make_damage_numbers(damage, is_crit);
+        current_health -= damage;
         
-        if (current_health <= 0)
-        {
+        if (current_health <= 0) {
             GameObject.FindWithTag("GameManager").GetComponent<GameManager>().minionDied();
             die();
         }
@@ -77,18 +74,18 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
             Destroy(hinge_joint);
             weakspot_destroyed_time = Time.time;
         }
-        get_hit(damage, damage_type);
+        get_hit(damage, damage_type, true);
     }
 
 
 
-    public void make_damage_numbers(float damage_taken, float damage_modifier) {
+    public void make_damage_numbers(float damage_taken, bool is_crit) {
         GameObject damage_numbers = Instantiate(damage_numbers_prefab) as GameObject;
         damage_numbers.GetComponent<Rigidbody>().AddForce(Random.Range(-225f, 225f), 60f, -100f);
         TextMesh text_mesh = damage_numbers.GetComponent<TextMesh>();
         text_mesh.text = damage_taken.ToString();
         damage_numbers.transform.position = gameObject.transform.position;
-        if (damage_modifier > 1) {
+        if ( is_crit ) {
             text_mesh.color = Color.red;
         }
     }
@@ -101,9 +98,8 @@ public class DiveBossHealth : MonoBehaviour, IMonsterHealth
         //Debug.Log(gameObject.name);
         //Debug.Log(other.tag);
         ActiveHitbox hitbox = other.GetComponent<ActiveHitbox>();
-        if ( hitbox )
-        {
-            get_hit(hitbox.damage, hitbox.damage_type);
+        if ( hitbox ) {
+            get_hit(hitbox.damage, hitbox.damage_type, false);
         }
 
     }
