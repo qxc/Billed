@@ -14,6 +14,7 @@ public class MonsterSpawner : MonoBehaviour
     public GameObject boss;
     public GameObject prefab_boss;
     public GameObject MiniMrBossMan;
+    public GameObject DiveMinionCritHead;
     private GameObject player1;
     private float xSpawnDistance = 5f;
     private float ySpawnDistance = 7f;
@@ -21,14 +22,12 @@ public class MonsterSpawner : MonoBehaviour
     private int current_level;
     private int current_phase;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Initialize();
     }
 
     void Initialize() {
-        if (initialized)
-        {
+        if (initialized) {
             return;
         }
         last_spawn_time = Time.time;
@@ -62,15 +61,22 @@ public class MonsterSpawner : MonoBehaviour
     }
     public void Level1()
     {
-        if (last_spawn_time + spawn_cooldown < Time.time)
-        {
+        if (last_spawn_time + spawn_cooldown < Time.time) {
+            GameObject minion;
             last_spawn_time = Time.time;
             spawn_cooldown_temporary_mod = Random.Range(0f, spawn_cooldown_temporary_range);
             spawn_cooldown = base_spawn_cooldown + spawn_cooldown_temporary_mod;
             float spawnXMod = Random.Range(-xSpawnDistance, xSpawnDistance);
             float spawnYMod = Random.Range(0, ySpawnDistance);
             Vector3 spawn_loc = new Vector3(player1.transform.position.x + spawnXMod, player1.transform.position.y + spawnYMod, player1.transform.position.z);
-            GameObject minion = Instantiate(MiniMrBossMan);
+            int randomMinionChoice = Random.Range(0, 2);
+            Debug.Log(randomMinionChoice);
+            if ( randomMinionChoice == 0 ) {
+                minion = Instantiate(MiniMrBossMan);
+            }
+            else {
+                minion = Instantiate(DiveMinionCritHead);
+            }
             minion.transform.position = spawn_loc;
         }
     }
