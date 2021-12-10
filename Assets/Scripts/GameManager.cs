@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
             GameObject[] minions = GameObject.FindGameObjectsWithTag("Boss");
             foreach (GameObject minion in minions) {
                 Debug.Log(minion);
-                IMonsterHealth mh = minion.GetComponentInChildren<IMonsterHealth>();
+                IMonsterHealth mh = minion.GetComponent<IMonsterHealth>();
                 Debug.Log(mh);
                 mh.die();
             }

@@ -62,8 +62,7 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
     }
 
     public void die() {
-        //gameObject.SetActive(false);
-        gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
     }
 
