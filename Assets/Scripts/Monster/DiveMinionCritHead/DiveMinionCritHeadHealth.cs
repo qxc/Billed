@@ -7,23 +7,19 @@ public class DiveMinionCritHeadHealth : MonoBehaviour, IMonsterHealth
     public float max_health { get; set; }
     public float current_health { get; set; }
     public GameObject _damage_numbers_prefab;
-    public GameObject damage_numbers_prefab
-    {
-        get
-        {
+    public GameObject damage_numbers_prefab {
+        get {
             return _damage_numbers_prefab;
         }
-        set
-        {
+        set {
             _damage_numbers_prefab = value;
         }
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        max_health = 50;
-        current_health = 50;
+    void Start() {
+        max_health = 100;
+        current_health = max_health;
     }
 
     // Update is called once per frame
@@ -44,8 +40,7 @@ public class DiveMinionCritHeadHealth : MonoBehaviour, IMonsterHealth
         get_hit(damage, damage_type, true);
         Debug.Log("Critical Hit");
     }
-    public void make_damage_numbers(float damage_taken, bool is_crit)
-    {
+    public void make_damage_numbers(float damage_taken, bool is_crit) {
         GameObject damage_numbers = Instantiate(damage_numbers_prefab) as GameObject;
         damage_numbers.GetComponent<Rigidbody>().AddForce(Random.Range(-225f, 225f), 60f, -100f);
         TextMesh text_mesh = damage_numbers.GetComponent<TextMesh>();
@@ -64,7 +59,7 @@ public class DiveMinionCritHeadHealth : MonoBehaviour, IMonsterHealth
         //Debug.Log(other.tag);
         ActiveHitbox hitbox = other.GetComponent<ActiveHitbox>();
         if (hitbox) {
-            get_hit(hitbox.damage, hitbox.damage_type, true);
+            get_hit(hitbox.damage, hitbox.damage_type, false);
         }
 
     }

@@ -18,8 +18,8 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
 
     // Start is called before the first frame update
     void Start() {
-        max_health = 50;
-        current_health = 50;
+        max_health = 100;
+        current_health = max_health;
     }
 
     // Update is called once per frame
@@ -29,14 +29,12 @@ public class DiveMinionHealth : MonoBehaviour, IMonsterHealth
         DiveMinionAttack monster_script = gameObject.GetComponent<DiveMinionAttack>();
         int attack_state = monster_script.attack_state;
         float damage_modifier = 1f;
-        if (attack_state == 1)
-        {
+        if (attack_state == 1) {
             monster_script.delay_dive();
-            damage_modifier = damage_modifier + 3f;
+            damage_modifier = damage_modifier + 2f;
         }
-        if (attack_state == 2)
-        {
-            damage_modifier = damage_modifier + 6f;
+        if (attack_state == 2) {
+            damage_modifier = damage_modifier + 3f;
         }
         float damage_taken = damage * damage_modifier;
         is_crit = damage_modifier > 1f;

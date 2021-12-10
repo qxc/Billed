@@ -9,19 +9,16 @@ public class DiveMinionCritHurtbox : MonoBehaviour
     public IMonsterHealth health_manager;
     GameObject connected_body;
     // Start is called before the first frame update
-    void Start()
-    {
-        crit_multi = 1.5f;
+    void Start() {
+        crit_multi = 2.0f;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision) {
         
         if (connected_body == null) {
             connected_body = gameObject.GetComponent<FixedJoint>().connectedBody.gameObject;

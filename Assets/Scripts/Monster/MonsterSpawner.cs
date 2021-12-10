@@ -59,9 +59,8 @@ public class MonsterSpawner : MonoBehaviour
             Level2();
         }
     }
-    public void Level1()
-    {
-        if (last_spawn_time + spawn_cooldown < Time.time) {
+    public void Level1() {
+        if (last_spawn_time + spawn_cooldown < Time.time && gameManager.is_spawning_minions) {
             GameObject minion;
             last_spawn_time = Time.time;
             spawn_cooldown_temporary_mod = Random.Range(0f, spawn_cooldown_temporary_range);
@@ -78,6 +77,7 @@ public class MonsterSpawner : MonoBehaviour
                 minion = Instantiate(DiveMinionCritHead);
             }
             minion.transform.position = spawn_loc;
+            gameManager.current_living_minions++;
         }
     }
     public void Level2() {

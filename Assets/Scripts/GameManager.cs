@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     // 0/1/2 == building/combat/levelup
     public int current_phase = 0, current_level = 1; 
     private float phaseStartTime;
+    public bool is_spawning_minions = false;
+    public int current_living_minions = 0;
     // Start is called before the first frame update
     void Start() {
         current_phase = 0;
@@ -26,16 +28,13 @@ public class GameManager : MonoBehaviour {
             Debug.Log("building phase ended!");
             current_phase = 1;
             phaseStartTime = Time.time;
+            is_spawning_minions = true;
         }
         if (current_phase == 1 && phaseStartTime + combatPhaseLength < Time.time) {
-            Debug.Log("combat phase has ended");
-            current_phase = 2;
-            GameObject[] minions = GameObject.FindGameObjectsWithTag("Boss");
-            foreach (GameObject minion in minions) {
-                Debug.Log(minion);
-                IMonsterHealth mh = minion.GetComponent<IMonsterHealth>();
-                Debug.Log(mh);
-                mh.die();
+            //Debug.Log("combat phase has ended");
+            is_spawning_minions = false;
+            if ( current_living_minions == 0 ) {
+                current_phase = 2;
             }
         }
 
@@ -57,6 +56,7 @@ public class GameManager : MonoBehaviour {
         if (current_level == 2) {
             current_phase = 2;
         }
+        current_living_minions--;
     }
     
     // First boss level

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiveMinionAttack : MonoBehaviour
-{
+public class DiveMinionAttack : MonoBehaviour {
     public GameObject player1;
     private float last_dive_time;
     private float base_dive_cooldown = 1.5f;
@@ -31,8 +30,8 @@ public class DiveMinionAttack : MonoBehaviour
     public float dive_active_duration = 1f;
     public float dive_recovery_duration = 1f;
 
-    float vertical_float_speed = 50f;
-    float horizontal_float_speed = 50f;
+    float vertical_float_speed = 100f;
+    float horizontal_float_speed = 100f;
     float vertical_dive_min_range = 2f;
     float horizontal_dive_max_range = 3f;
     float vertical_dive_min_range_range = 2f;
@@ -42,8 +41,7 @@ public class DiveMinionAttack : MonoBehaviour
     public int attack_state = 0; // 0/1/2/3 == not attacking / attack startup / attack active / attack recovery
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         GameManager gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         dive_hitbox = gameObject.GetComponentInChildren<ActiveHitbox>();
         player1 = gameManager.Player1;
@@ -69,8 +67,7 @@ public class DiveMinionAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
 
         if (dive_state != 2) {
             transform.LookAt(player1.transform);
@@ -119,15 +116,13 @@ public class DiveMinionAttack : MonoBehaviour
         dive_state = attack_state = 2;
     }
 
-    public void dive_recovery_start()
-    {
+    public void dive_recovery_start() {
         dive_state = attack_state = 3;
         dive_particles.Stop();
         dive_hitbox.is_active = false;
     }
 
-    void dive_recovery_end()
-    {
+    void dive_recovery_end() {
         //Debug.Log("recovery frames ended");
         dive_state = attack_state = 0;
         last_dive_time = Time.time;
